@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const database_1 = __importDefault(require("./config/database"));
 // const  router  = require( './route/index');
-// const dbCreate = require('./models/index');
+const dbCreate = require('./models/categories');
 // const bodyParser = require('body-parser');
 // const cors = require('cors');
 const isDev = process.env.NODE_ENV === 'development';
@@ -29,7 +29,7 @@ app.use(express_1.default.json());
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield database_1.default.sync({ alter: true });
-        app.listen(6000, () => {
+        app.listen(4000, () => {
             console.log("Server started on port 4000");
         });
     }

@@ -1,9 +1,9 @@
 import express, { Application, Request, Response } from 'express'
 import db from './config/database';
-// const  router  = require( './route/index');
+const  router  = require( './routes/index');
 const dbCreate = require('./models/index');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const isDev = process.env.NODE_ENV === 'development'
 const app: Application = express();
 
@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 /** Takes care of JSON data */
 app.use(express.json());
 
-// app.use(cors("*"));
-// app.use('/', router);
+app.use(cors("*"));
+app.use('/', router);
 
 const start = async (): Promise<void> => {
     try {

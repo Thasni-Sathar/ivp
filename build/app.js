@@ -14,18 +14,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const database_1 = __importDefault(require("./config/database"));
-// const  router  = require( './route/index');
+const router = require('./routes/index');
 const dbCreate = require('./models/index');
-// const bodyParser = require('body-parser');
-// const cors = require('cors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const isDev = process.env.NODE_ENV === 'development';
 const app = (0, express_1.default)();
 /** Parse the request */
 app.use(express_1.default.urlencoded({ extended: false }));
 /** Takes care of JSON data */
 app.use(express_1.default.json());
-// app.use(cors("*"));
-// app.use('/', router);
+app.use(cors("*"));
+app.use('/', router);
 const start = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield database_1.default.sync({ alter: true });

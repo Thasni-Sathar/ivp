@@ -9,5 +9,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.Question = require('./questions');
 db.Category = require("./categories");
+db.Interview = require("./interviews");
 questions_1.Question.belongsTo(categories_1.Category, { foreignKey: 'category_id' });
 categories_1.Category.hasMany(questions_1.Question, { foreignKey: 'category_id' });

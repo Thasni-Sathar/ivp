@@ -15,15 +15,15 @@ Interview.init({
         autoIncrement: true,
         primaryKey: true
     },
-    interviewtitle: {
+    interviewTitle: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false
     },
-    interviewdate: {
+    interviewDate: {
         type: sequelize_1.DataTypes.DATE,
         allowNull: false
     },
-    interviewtime: {
+    interviewTime: {
         type: sequelize_1.DataTypes.DATE,
         allowNull: false
     },

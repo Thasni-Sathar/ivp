@@ -19,5 +19,12 @@ class CategoryService {
     findByCategoryId(id) {
         return categories_1.Category.findByPk(id);
     }
+    findByName(name) {
+        return categories_1.Category.findOne({
+            where: {
+                categoryName: name
+            }
+        });
+    }
 }
 exports.CategoryService = CategoryService;

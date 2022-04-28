@@ -24,4 +24,12 @@ export class CategoryService{
     findByCategoryId(id:number){
         return Category.findByPk(id);
     }
+
+    findByName(name:any) {
+        return Category.findOne({
+            where:{
+                categoryName:name
+            }
+        })
+    }
 }

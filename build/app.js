@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const database_1 = __importDefault(require("./config/database"));
 // const  router  = require( './route/index');
-const dbCreate = require('./models/categories');
+const dbCreate = require('./models/index');
 // const bodyParser = require('body-parser');
 // const cors = require('cors');
 const isDev = process.env.NODE_ENV === 'development';

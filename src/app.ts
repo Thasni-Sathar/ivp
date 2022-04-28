@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import db from './config/database';
 // const  router  = require( './route/index');
-const dbCreate = require('./models/categories');
+const dbCreate = require('./models/index');
 // const bodyParser = require('body-parser');
 // const cors = require('cors');
 const isDev = process.env.NODE_ENV === 'development'

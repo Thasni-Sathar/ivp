@@ -19,14 +19,6 @@ Interview.init({
         type: sequelize_1.DataTypes.STRING,
         allowNull: false
     },
-    interviewDate: {
-        type: sequelize_1.DataTypes.DATE,
-        allowNull: false
-    },
-    interviewTime: {
-        type: sequelize_1.DataTypes.DATE,
-        allowNull: false
-    },
     status: {
         type: sequelize_1.DataTypes.STRING,
         // values:['active','in active'],
@@ -42,11 +34,11 @@ Interview.init({
     },
     createdbyid: {
         type: sequelize_1.DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     updatedbyid: {
         type: sequelize_1.DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     },
 }, {
     sequelize: database_1.default,

@@ -4,8 +4,6 @@ import db from '../config/database'
 interface InterviewAttributes {
     id: number;
     interviewtitle: string;
-    interviewdate:Date;
-    interviewtime:Date;
     status:EnumDataType<any>;
     createdbyid:number;
     updatedbyid:number;
@@ -16,8 +14,6 @@ export interface InterviewOutput extends Required<InterviewAttributes> {}
 export class Interview extends Model implements InterviewAttributes {
     public  id!: number;
     public interviewtitle!: string;
-    public interviewdate!:Date;
-    public interviewtime!:Date;
     public status!:EnumDataType<any>;
     public createdbyid!:number;
     public updatedbyid!:number;
@@ -31,12 +27,6 @@ Interview.init({
     interviewTitle: {
       type: DataTypes.STRING,
       allowNull: false},
-    interviewDate: {
-        type: DataTypes.DATE,
-        allowNull: false},
-    interviewTime: {
-        type: DataTypes.DATE,
-        allowNull: false},
     status:{
       type:DataTypes.STRING,
       // values:['active','in active'],
@@ -51,11 +41,11 @@ Interview.init({
       allowNull:false},
     createdbyid:{
         type: DataTypes.INTEGER,
-        allowNull:false
+        allowNull:true
     },
     updatedbyid:{
         type: DataTypes.INTEGER,
-        allowNull:false},
+        allowNull:true},
     },{
         sequelize: db,
         modelName: 'interviews',

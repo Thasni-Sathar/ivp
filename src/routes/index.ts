@@ -4,9 +4,11 @@ const router = express.Router();
 
 const categoryRouter = require('./categories.route');
 const questionRouter = require('./questions.route');
+const interviewRouter = require('./interview.route');
 
 router.use('/admin', categoryRouter);
 router.use('/admin', questionRouter);
+router.use('/admin', interviewRouter);
 
 
 

@@ -2,6 +2,9 @@ import { Category } from "./categories";
 import { Question } from "./questions";
 import { Interview } from "./interviews";
 import { Candidate } from "./candidates";
+import { CandidateCategory } from "./candidateCategories";
+import { InterviewCandidates } from "./interviewCandidates";
+import { InterviewQuestions } from "./interviewQuestions";
 
 const sequelize = require('../config/database')
 const db:any = {};
@@ -13,9 +16,27 @@ db.Question=require('./questions')
 db.Category=require("./categories")
 db.Interview=require("./interviews")
 db.Candidate=require("./candidates")
+db.CandidateCategory=require("./candidateCategories")
+db.InterviewCandidates=require("./interviewCandidates")
+db.InterviewQuestions=require("./interviewQuestions")
 
 
 
 
 Question.belongsTo(Category, {foreignKey: 'category_id'});
 Category.hasMany(Question, {foreignKey: 'category_id'});
+
+Candidate.belongsTo(CandidateCategory, {foreignKey: 'candidate_category_id'});
+CandidateCategory.hasMany(Candidate, {foreignKey: 'candidate_category_id'});
+
+InterviewCandidates.belongsTo(Interview,{foreignKey:'interview_id'});
+Interview.hasOne(InterviewCandidates, {foreignKey:'interview_id'});
+
+InterviewCandidates.belongsTo(Candidate,{foreignKey:'candidate_id'});
+Candidate.hasOne(InterviewCandidates, {foreignKey:'candidate_id'});
+
+InterviewQuestions.belongsTo(Question,{foreignKey:'question_id'});
+Question.hasOne(InterviewQuestions, {foreignKey:'question_id'});
+
+InterviewQuestions.belongsTo(Interview, {foreignKey: 'interview_id'});
+Interview.hasMany(InterviewQuestions, {foreignKey: 'interview_id'});

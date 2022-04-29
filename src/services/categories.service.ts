@@ -37,7 +37,7 @@ export class CategoryService{
         return Question.findAll({
             include : [{
                 model : Category,
-                where: { id : id}
+                where: { id : id,status:'active'}
                 }],
         })
     }

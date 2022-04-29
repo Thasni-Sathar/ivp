@@ -21,14 +21,15 @@ Question.init({
     },
     status: {
         type: sequelize_1.DataTypes.STRING,
-        validate: {
-            customValidator: (value) => {
-                const enums = ['active', 'inactive'];
-                if (!enums.includes(value)) {
-                    throw new Error('not a valid option');
-                }
-            }
-        },
+        values: ['active', 'in active'],
+        //     validate: {
+        //       customValidator: (value:string) => {
+        //           const enums = ['active', 'inactive']
+        //           if (!enums.includes(value)) {
+        //               throw new Error('not a valid option')
+        //           }
+        //       }
+        //   },
         allowNull: false
     },
 }, {

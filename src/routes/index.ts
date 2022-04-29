@@ -3,11 +3,11 @@ const router = express.Router();
 
 
 const categoryRouter = require('./categories.route');
-const candidateRouter = require('./candidates.route');
-
+const questionRouter = require('./questions.route');
 
 router.use('/admin', categoryRouter);
-router.use('/admin', candidateRouter);
+router.use('/admin', questionRouter);
+
 
 
 

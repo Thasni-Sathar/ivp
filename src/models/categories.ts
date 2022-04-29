@@ -20,7 +20,7 @@ Category.init({
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true},
-    categoryname: {
+    categoryName: {
       type: DataTypes.STRING,
       allowNull: false},
     status:{

@@ -28,13 +28,13 @@ Interview.init({
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true},
-    interviewtitle: {
+    interviewTitle: {
       type: DataTypes.STRING,
       allowNull: false},
-    interviewdate: {
+    interviewDate: {
         type: DataTypes.DATE,
         allowNull: false},
-    interviewtime: {
+    interviewTime: {
         type: DataTypes.DATE,
         allowNull: false},
     status:{

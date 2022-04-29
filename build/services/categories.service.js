@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoryService = void 0;
 const categories_1 = require("../models/categories");
+const questions_1 = require("../models/questions");
 class CategoryService {
     static get EmployeeList() {
         /* When only selected fields required go for the below code */
@@ -18,6 +19,21 @@ class CategoryService {
     }
     findByCategoryId(id) {
         return categories_1.Category.findByPk(id);
+    }
+    findByName(name) {
+        return categories_1.Category.findOne({
+            where: {
+                categoryName: name
+            }
+        });
+    }
+    findQuestionsByCategoryId(id) {
+        return questions_1.Question.findAll({
+            include: [{
+                    model: categories_1.Category,
+                    where: { id: id }
+                }],
+        });
     }
 }
 exports.CategoryService = CategoryService;

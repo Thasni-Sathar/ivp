@@ -27,22 +27,11 @@ class QuestionController {
             });
         });
     }
-    //     async addQuestion(req:any,res:any){
-    //         let question:any = req.body;
-    //         questionService.createQuestion(question)
-    //             .then((data:any)=>{
-    //                 res.status(200).send({message:"category created",data});
-    //         })
-    //             .catch((error:string) => {
-    //             console.log(error);
-    // });
-    //     }
     addQuestion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             categoriesService.findByName(req.body.categoryName)
                 .then((data) => {
                 var category = data;
-                console.log(category);
                 let Questiondb = {
                     question: req.body.question,
                     status: req.body.status,
@@ -72,6 +61,17 @@ class QuestionController {
             })
                 .catch((error) => {
                 res.status(401).send({ message: "questions doesn't exist" });
+            });
+        });
+    }
+    updateQuestionById(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            questionService.updateQuestion(req.body, req.params.id)
+                .then((data) => {
+                res.status(200).json({ message: "question updated successfully" });
+            })
+                .catch((error) => {
+                console.log(error);
             });
         });
     }

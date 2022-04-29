@@ -26,4 +26,15 @@ export class QuestionService{
         return Question.findByPk(id);
     }
 
+    updateQuestion(event:any,id:number){
+        var updateQuestion = {
+        question: event.question,
+        status : event.status,
+        }
+    return Question.update(updateQuestion, { where: { id: id } });
+    
+    
+        }
+    
+
 }

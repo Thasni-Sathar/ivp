@@ -1,4 +1,6 @@
 import { Category} from '../models/categories' 
+import { Question} from '../models/questions' 
+
 
 export class CategoryService{
     
@@ -32,4 +34,14 @@ export class CategoryService{
             }
         })
     }
+
+    findQuestionsByCategoryId(id:number){
+        return Question.findAll({
+            include : [{
+                model : Category,
+                where: { id : id}
+                }],
+        })
+    }
+
 }

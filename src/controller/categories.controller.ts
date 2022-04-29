@@ -44,4 +44,26 @@ export class CategoryController{
                 
             });
     }
+
+
+    async getQuestionsByCategoryId(req:any,res:any){
+        let categoryName:string = req.params.categoryname;
+            categoryService.findByName(categoryName)
+            .then((data:any) => {
+            var category = data;  
+            var category_id = category.id;
+
+            categoryService.findQuestionsByCategoryId(category_id)
+             .then((data:any)=>{
+                 res.send(data)
+             })
+             .catch((error:any)=>{
+                res.send(error)
+             })
+            
+        })
+        .catch((error:any)=>{
+            res.send(error)
+         })
+        }
 }

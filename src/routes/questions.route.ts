@@ -7,9 +7,9 @@ import { QuestionController } from '../controller/questions.controller';
 const questionController = new QuestionController();
 
 //for getting list of all questions
-router.get('/',questionController.getQuestionList);
+router.get('/questions',questionController.getQuestionList);
 router.get('/questions/:id',questionController.getQuestionById);
-// router.put('/update-employee-role/:id',categoryController.updateEmployeeRoles);
+router.put('/question/:id',questionController.updateQuestionById);
 router.post('/questions',questionController.addQuestion);
 
 

@@ -51,5 +51,25 @@ class CategoryController {
             });
         });
     }
+    getQuestionsByCategoryId(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let categoryName = req.params.categoryname;
+            categoryService.findByName(categoryName)
+                .then((data) => {
+                var category = data;
+                var category_id = category.id;
+                categoryService.findQuestionsByCategoryId(category_id)
+                    .then((data) => {
+                    res.send(data);
+                })
+                    .catch((error) => {
+                    res.send(error);
+                });
+            })
+                .catch((error) => {
+                res.send(error);
+            });
+        });
+    }
 }
 exports.CategoryController = CategoryController;

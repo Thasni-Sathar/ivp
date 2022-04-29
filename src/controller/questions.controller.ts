@@ -22,23 +22,16 @@ export class QuestionController{
     });
     }
 
-//     async addQuestion(req:any,res:any){
-//         let question:any = req.body;
-//         questionService.createQuestion(question)
-//             .then((data:any)=>{
-//                 res.status(200).send({message:"category created",data});
-//         })
-//             .catch((error:string) => {
-//             console.log(error);
-// });
-//     }
+
+
+
+
 
         async addQuestion(req:any, res:any){
 
             categoriesService.findByName(req.body.categoryName)
             .then((data:any) => {
             var category = data;  
-            console.log(category)          
             let Questiondb = {
                 question: req.body.question,
                 status: req.body.status,
@@ -71,4 +64,14 @@ export class QuestionController{
                 
             });
     }
+        async updateQuestionById(req:any,res:any){
+            questionService.updateQuestion(req.body, req.params.id)
+            .then((data:any) => {
+    res.status(200).json({message: "question updated successfully"})
+})
+    .catch((error:any) => {
+    console.log(error);
+    });
+
+        }
 }

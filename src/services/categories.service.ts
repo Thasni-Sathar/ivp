@@ -9,11 +9,9 @@ export class CategoryService{
     }
 
 
-    /* To get the list of all employees*/
+    /* To get the list of all categories*/
     getAllCategories(){
-            return Category.findAll({
-            
-        })   
+            return Category.findAll()   
     }
 
     createCategory(category:any){

@@ -9,50 +9,50 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CategoryController = void 0;
-const categories_service_1 = require("../services/categories.service");
-const categoryService = new categories_service_1.CategoryService();
-class CategoryController {
+exports.CandidateController = void 0;
+const candidates_services_1 = require("../services/candidates.services");
+const candidateService = new candidates_services_1.CandidateService();
+class CandidateController {
     /* To get the list of all categories */
-    getCategoryList(req, res) {
+    getCandidateList(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            categoryService.getAllCategories()
+            candidateService.getAllCandidates()
                 .then((data) => {
                 if (Object.keys(data).length !== 0)
-                    res.status(200).send({ message: "category retrieved successfully", data });
+                    res.status(200).send({ message: "candidate retrieved successfully", data });
                 else
-                    res.status(401).send({ message: "category doesn't exist" });
+                    res.status(401).send({ message: "candidate table is empty" });
             })
                 .catch((error) => {
                 res.status(401).send(error);
             });
         });
     }
-    addCategory(req, res) {
+    addCandidate(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            let category = req.body;
-            categoryService.createCategory(category)
+            let candidate = req.body;
+            candidateService.createCandidate(candidate)
                 .then((data) => {
-                res.status(200).send({ message: "category created", data });
+                res.status(200).send({ message: "candidate created", data });
             })
                 .catch((error) => {
                 console.log(error);
             });
         });
     }
-    getCategoryById(req, res) {
+    getCandidateById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            let categoryId = req.params.id;
-            categoryService.findByCategoryId(categoryId)
+            let candidateId = req.params.id;
+            candidateService.findByCandidateId(candidateId)
                 .then((data) => {
                 if (data.data !== 'null') {
-                    res.status(200).send({ message: "particular category retrieved successfully", data });
+                    res.status(200).send({ message: "particular candidate retrieved successfully", data });
                 }
             })
                 .catch((error) => {
-                res.status(401).send({ message: "category doesn't exist" });
+                res.status(401).send({ message: "candidate doesn't exist" });
             });
         });
     }
 }
-exports.CategoryController = CategoryController;
+exports.CandidateController = CandidateController;

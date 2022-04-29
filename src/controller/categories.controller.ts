@@ -13,11 +13,14 @@ export class CategoryController{
     async getCategoryList(req:any,res:any){
         categoryService.getAllCategories()
             .then((data:any)=>{
-                res.status(200).send({message:"category retrieved successfully",data});
-        })
+                if(Object.keys(data).length !== 0)
+                    res.status(200).send({message:"category retrieved successfully",data});
+                else
+                res.status(401).send({message: "category doesn't exist"})
+            })
             .catch((error:string) => {
-                console.log(error);
-    });
+                res.status(401).send(error)
+            });
     }
 
     async addCategory(req:any,res:any){

@@ -8,9 +8,9 @@ class CategoryService {
         //return ['id','role_id'];
         return ({});
     }
-    /* To get the list of all employees*/
+    /* To get the list of all categories*/
     getAllCategories() {
-        return categories_1.Category.findAll({});
+        return categories_1.Category.findAll();
     }
     createCategory(category) {
         var newCategory = new categories_1.Category(category);

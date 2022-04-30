@@ -37,6 +37,17 @@ class InterviewController {
                 .catch((error) => {
                 res.send(error);
             });
+            // .then((question_id:any)=>{
+            //     console.log(interview.question_id)
+            //     try{
+            //         interview.setinterview_questions(question_id)
+            //         res.send("success")
+            //     }
+            //     catch(error:any){
+            //         console.log("error occured")
+            //         res.send(error);
+            //     }
+            // })
         });
     }
     getQuestionsByInterviewId(req, res) {

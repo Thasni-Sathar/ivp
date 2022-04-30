@@ -40,3 +40,15 @@ Question.hasOne(InterviewQuestions, {foreignKey:'question_id'});
 
 InterviewQuestions.belongsTo(Interview, {foreignKey: 'interview_id'});
 Interview.hasMany(InterviewQuestions, {foreignKey: 'interview_id'});
+
+// Question.belongsToMany(Interview, {
+//     through: "interview_questions",
+//     foreignKey: "question_id",
+//     otherKey: "interview_id"
+//   });
+  
+//   Interview.belongsToMany(Question, {
+//     through: "interview_questions",
+//     foreignKey: "interview_id",
+//     otherKey: "question_id" ,
+//   });

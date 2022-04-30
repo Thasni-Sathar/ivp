@@ -31,3 +31,13 @@ interviewQuestions_1.InterviewQuestions.belongsTo(questions_1.Question, { foreig
 questions_1.Question.hasOne(interviewQuestions_1.InterviewQuestions, { foreignKey: 'question_id' });
 interviewQuestions_1.InterviewQuestions.belongsTo(interviews_1.Interview, { foreignKey: 'interview_id' });
 interviews_1.Interview.hasMany(interviewQuestions_1.InterviewQuestions, { foreignKey: 'interview_id' });
+// Question.belongsToMany(Interview, {
+//     through: "interview_questions",
+//     foreignKey: "question_id",
+//     otherKey: "interview_id"
+//   });
+//   Interview.belongsToMany(Question, {
+//     through: "interview_questions",
+//     foreignKey: "interview_id",
+//     otherKey: "question_id" ,
+//   });

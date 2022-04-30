@@ -1,4 +1,5 @@
 import { Interview } from "../models/interviews";
+import { Question } from "../models/questions";
 import { InterviewService } from "../services/interview.services";
 import { InterviewQuestionService } from "../services/interviewQuestion.services";
 import { QuestionService } from "../services/questions.service";
@@ -27,6 +28,21 @@ export class InterviewController{
         .catch((error:any)=>{
             res.send(error);
         })
+
+            // .then((question_id:any)=>{
+            //     console.log(interview.question_id)
+            //     try{
+            //         interview.setinterview_questions(question_id)
+            //         res.send("success")
+            //     }
+            //     catch(error:any){
+            //         console.log("error occured")
+            //         res.send(error);
+                    
+            //     }
+
+                
+            // })
     }
 
     async getQuestionsByInterviewId(req:any,res:any){

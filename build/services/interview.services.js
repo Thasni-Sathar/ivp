@@ -7,5 +7,12 @@ class InterviewService {
         var newInterview = new interviews_1.Interview(interview);
         return newInterview.save();
     }
+    findByTitle(title) {
+        return interviews_1.Interview.findOne({
+            where: {
+                interviewTitle: title
+            }
+        });
+    }
 }
 exports.InterviewService = InterviewService;

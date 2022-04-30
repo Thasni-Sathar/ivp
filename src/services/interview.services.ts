@@ -8,4 +8,12 @@ export class InterviewService{
         return newInterview.save();
     }
 
+    findByTitle(title:any) {
+        return Interview.findOne({
+            where:{
+                interviewTitle:title
+            }
+        })
+    }
+
 }

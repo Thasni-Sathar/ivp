@@ -17,7 +17,7 @@ InterviewQuestions.init({
     },
     questionId: {
         type: sequelize_1.DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     interviewId: {
         type: sequelize_1.DataTypes.INTEGER,

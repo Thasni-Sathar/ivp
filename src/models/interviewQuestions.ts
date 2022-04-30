@@ -22,7 +22,7 @@ InterviewQuestions.init({
       primaryKey: true},
     questionId: {
       type: DataTypes.INTEGER,
-      allowNull: false},
+      allowNull: true},
     interviewId: {
         type: DataTypes.INTEGER,
         allowNull: false},

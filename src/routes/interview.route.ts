@@ -7,6 +7,7 @@ import { InterviewController } from '../controller/interview.controller';
 const interviewController = new InterviewController();
 
 router.post('/interview',interviewController.addInterview);
+router.get('/interview/:interviewtitle',interviewController.getQuestionsByInterviewId);
 
 
 module.exports = router

@@ -16,13 +16,27 @@ class InterviewController {
     addInterview(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             var interview = req.body;
+            console.log(interview);
             interviewServices.createInterview(interview)
                 .then((data) => {
+                var interviewId = data.id;
+                console.log(interviewId);
                 res.send(data);
             })
                 .catch((error) => {
                 res.send(error);
             });
+            // .then((question_id:any)=>{
+            //     console.log(interview.question_id)
+            //     try{
+            //         interview.setinterview_questions(question_id)
+            //         res.send("success")
+            //     }
+            //     catch(error:any){
+            //         console.log("error occured")
+            //         res.send(error);
+            //     }
+            // })
         });
     }
 }

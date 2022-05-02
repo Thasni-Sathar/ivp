@@ -16,4 +16,11 @@ export class InterviewService{
         })
     }
 
+    updateInterview(interview:any){
+        const hi = "hi";
+        return  ({
+            hi
+        })
+    }
+
 }

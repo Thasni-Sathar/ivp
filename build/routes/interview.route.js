@@ -6,4 +6,5 @@ const interview_controller_1 = require("../controller/interview.controller");
 const interviewController = new interview_controller_1.InterviewController();
 router.post('/interview', interviewController.addInterview);
 router.get('/interview/:interviewtitle', interviewController.getQuestionsByInterviewId);
+router.put('/interview/:interviewtitle', interviewController.updateInterview);
 module.exports = router;

@@ -14,5 +14,8 @@ class InterviewService {
             }
         });
     }
+    updateInterview(interview) {
+        return ({});
+    }
 }
 exports.InterviewService = InterviewService;

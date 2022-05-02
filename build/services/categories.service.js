@@ -31,7 +31,7 @@ class CategoryService {
         return questions_1.Question.findAll({
             include: [{
                     model: categories_1.Category,
-                    where: { id: id }
+                    where: { id: id, status: 'active' }
                 }],
         });
     }

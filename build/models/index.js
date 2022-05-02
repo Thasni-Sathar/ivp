@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const categories_1 = require("./categories");
 const questions_1 = require("./questions");
+const employees_1 = require("./employees");
+const roles_1 = require("./roles");
 const sequelize = require('../config/database');
 const db = {};
 const Sequelize = require("sequelize");
@@ -11,5 +13,9 @@ db.Question = require('./questions');
 db.Category = require("./categories");
 db.Interview = require("./interviews");
 db.Candidate = require("./candidates");
+db.Employee = require("./employees");
+db.Role = require("./roles");
 questions_1.Question.belongsTo(categories_1.Category, { foreignKey: 'category_id' });
 categories_1.Category.hasMany(questions_1.Question, { foreignKey: 'category_id' });
+employees_1.Employee.belongsTo(roles_1.Role, { foreignKey: 'role_id' });
+roles_1.Role.hasMany(employees_1.Employee, { foreignKey: 'role_id' });
